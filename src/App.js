@@ -1,22 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react'
+import Income from "./Components/Income.js"
 
 function App() {
+  const [wholeIncome,setWholeIncome]=useState([])
+  const [incomeTitle,setIncomeTitle]=useState('')
+  const [incomeValue,setIncomeValue]=useState('')
+
+
+
+  const incomeSubmitHandler = (e) =>{
+    e.preventDefault();
+  setWholeIncome([...wholeIncome,{id:Math.random()*1000,incomeTitle,incomeValue}])
+
+  }
+
+console.log(wholeIncome)
+
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <h1>Expense tracker</h1>
+      <Income 
+      incomeSubmitHandler={incomeSubmitHandler}
+      setIncomeTitle={setIncomeTitle}
+      setIncomeValue={setIncomeValue}
+      wholeIncome={wholeIncome}
+       />
       </header>
     </div>
   );
