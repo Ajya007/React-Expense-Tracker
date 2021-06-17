@@ -2,9 +2,9 @@
 
 const ExpenseTransaction = ({el,expenseDeleteHandler}) => {
     return (
-        <div className="incometransaction">
+        <div className="expensetransaction">
          <p>{el.expenseTitle}</p>
-         <div>
+         <div className="et-collection">
          <p>{el.expenseValue}</p>
          <button onClick={() => expenseDeleteHandler(el.id)}>delete</button>
          </div>
