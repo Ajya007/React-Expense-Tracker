@@ -7,8 +7,8 @@ const Income = ({setIncomeValue,setIncomeTitle,incomeSubmitHandler,wholeIncome,i
     return(
         <div className="income" >
             <form onSubmit={incomeSubmitHandler}>
-                <input onChange={(e) => setIncomeTitle(e.target.value)} placeholder="Add Income" value={incomeTitle} autocomplete="off"/>
-                <input onChange={(e) => setIncomeValue(e.target.value)}  value={incomeValue} autocomplete="off" />
+                <input onChange={(e) => setIncomeTitle(e.target.value)} placeholder="Add Income" value={incomeTitle} autoComplete="off"/>
+                <input onChange={(e) => setIncomeValue(e.target.value)} placeholder="Add Value" value={incomeValue} autoComplete="off" />
                 <button type="submit" >submit</button>
             </form>
 

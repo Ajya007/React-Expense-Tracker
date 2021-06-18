@@ -8,13 +8,17 @@
 .whole-app{
     background-color: rgb(48, 177, 106);
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
 }
 
 .app-section{
-    width: 70%;
-    height: 70%;
+    min-width: 70%;
+    min-height: 70%;
    background-color: rgb(31, 30, 30);
     position: absolute;
     top:50%;
@@ -23,10 +27,13 @@
     display: flex;
     gap:2rem;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
+
 
 .balance{
     display: flex;
+   width: 100%;
     flex-direction: column;
     padding: 30px 50px;
     h1{
@@ -68,12 +75,17 @@ h2{
 
 .ie-wrapper{
     display: flex;
-    gap: 10rem;
     padding: 30px 50px;
+    flex-wrap: wrap;
 
     
 }
-
+.income{
+    padding: 0 2rem;
+}
+.expense{
+    padding: 0 2rem;
+}
 .income form{
     padding: 20px 0;
     display: flex;
@@ -107,6 +119,7 @@ h2{
     background: rgb(48, 177, 106);
     display: flex;
     justify-content: space-between;
+    gap:2rem;
     .it-collection{
         display: flex;
         gap: 1rem;
@@ -158,6 +171,7 @@ h2{
     background: rgb(224, 78, 78);
     display: flex;
     justify-content: space-between;
+    gap:2rem;
     .et-collection{
         display: flex;
         gap: 1rem;
@@ -171,4 +185,36 @@ h2{
            
         }
     }
+}
+
+@media screen and (max-width:768px) {
+
+    
+
+
+.app-section{
+    width: 90%;
+    height: 100%;
+    overflow: scroll;
+}
+
+.balance-wrapper{
+    width: 100%;
+    text-align: center;
+}
+.balance{
+    width: 100%;
+}
+.ie-wrapper{
+    width: 100%;
+}
+.income{
+    width: 100%;
+    margin: bottom 50%;
+}
+
+.expense{
+    width: 100%;
+    margin-top: 50px;
+}
 }

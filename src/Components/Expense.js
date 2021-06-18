@@ -8,7 +8,7 @@ const Expense= ({setExpenseValue,setExpenseTitle,expenseSubmitHandler,wholeExpen
         <div className="expense" >
             <form onSubmit={expenseSubmitHandler}>
                 <input onChange={(e) => setExpenseTitle(e.target.value)} placeholder="Add Expense" value={expenseTitle} autoComplete="off"/>
-                <input onChange={(e) => setExpenseValue(e.target.value)}  value={expenseValue} autoComplete="off"/>
+                <input onChange={(e) => setExpenseValue(e.target.value)}  placeholder="Add Value"  value={expenseValue} autoComplete="off"/>
                 <button type="submit" >submit</button>
             </form>
 

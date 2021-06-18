@@ -5,7 +5,7 @@ const InocmeTransaction = ({el,incomeDeleteHandler}) => {
         <div className="incometransaction">
          <p>{el.incomeTitle}</p>
          <div className="it-collection">
-         <p>{el.incomeValue}</p>
+         <p>${el.incomeValue}</p>
          <button onClick={() => incomeDeleteHandler(el.id)}>delete</button>
          </div>
         

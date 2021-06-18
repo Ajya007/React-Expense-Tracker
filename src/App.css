@@ -8,13 +8,22 @@
 .whole-app {
   background-color: #30b16a;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .app-section {
-  width: 70%;
-  height: 70%;
+  min-width: 70%;
+  min-height: 70%;
   background-color: #1f1e1e;
   position: absolute;
   top: 50%;
@@ -28,12 +37,15 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .balance {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -90,8 +102,17 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 10rem;
   padding: 30px 50px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.income {
+  padding: 0 2rem;
+}
+
+.expense {
+  padding: 0 2rem;
 }
 
 .income form {
@@ -156,6 +177,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  gap: 2rem;
 }
 
 .incometransaction .it-collection {
@@ -236,6 +258,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  gap: 2rem;
 }
 
 .expensetransaction .et-collection {
@@ -252,5 +275,31 @@
   text-transform: uppercase;
   font-size: 0.7rem;
   padding: 5px 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .app-section {
+    width: 90%;
+    height: 100%;
+    overflow: scroll;
+  }
+  .balance-wrapper {
+    width: 100%;
+    text-align: center;
+  }
+  .balance {
+    width: 100%;
+  }
+  .ie-wrapper {
+    width: 100%;
+  }
+  .income {
+    width: 100%;
+    margin: bottom 50%;
+  }
+  .expense {
+    width: 100%;
+    margin-top: 50px;
+  }
 }
 /*# sourceMappingURL=App.css.map */

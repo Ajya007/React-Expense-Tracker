@@ -12,12 +12,12 @@ function App() {
   const [totalExpense,setTotalExpense] = useState(0)
   const [wholeIncome,setWholeIncome]=useState([])
   const [incomeTitle,setIncomeTitle]=useState('')
-  const [incomeValue,setIncomeValue]=useState(0)
+  const [incomeValue,setIncomeValue]=useState('')
 
 
   const [wholeExpense,setWholeExpense]=useState([])
   const [expenseTitle,setExpenseTitle]=useState('')
-  const [expenseValue,setExpenseValue]=useState(0)
+  const [expenseValue,setExpenseValue]=useState('')
 
   useEffect(() => {
   const array1=wholeIncome.map(el => el.incomeValue)
@@ -47,7 +47,7 @@ function App() {
     e.preventDefault();
   setWholeIncome([...wholeIncome,{id:Math.random()*1000,incomeTitle,incomeValue:parseInt(incomeValue)}])
   setIncomeTitle('')
-  setIncomeValue(0)
+  setIncomeValue('')
 
   }
 
@@ -55,7 +55,7 @@ function App() {
     e.preventDefault();
   setWholeExpense([...wholeExpense,{id:Math.random()*1000,expenseTitle,expenseValue:parseInt(expenseValue)}])
   setExpenseTitle('')
-  setExpenseValue(0)
+  setExpenseValue('')
 
   }
 
