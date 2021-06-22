@@ -81,12 +81,12 @@ function App() {
     <div className="app-section">
    
      
-     <div className="balance-wrapper">
+     
       <Balance  
       totalIncome={totalIncome}
       totalExpense={totalExpense}
       totalBalance={totalBalance}/>
-      </div>
+
       <div className="ie-wrapper">
       <Income 
       incomeSubmitHandler={incomeSubmitHandler}

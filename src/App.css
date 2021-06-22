@@ -25,27 +25,22 @@
   min-width: 70%;
   min-height: 70%;
   background-color: #1f1e1e;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 2rem;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .balance {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -99,20 +94,18 @@
 }
 
 .ie-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 30px 50px;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(150px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .income {
-  padding: 0 2rem;
+  padding: 2rem 2rem;
 }
 
 .expense {
-  padding: 0 2rem;
+  padding: 2rem 2rem;
 }
 
 .income form {
@@ -281,7 +274,6 @@
   .app-section {
     width: 90%;
     height: 100%;
-    overflow: scroll;
   }
   .balance-wrapper {
     width: 100%;
@@ -295,11 +287,9 @@
   }
   .income {
     width: 100%;
-    margin: bottom 50%;
   }
   .expense {
     width: 100%;
-    margin-top: 50px;
   }
 }
 /*# sourceMappingURL=App.css.map */
