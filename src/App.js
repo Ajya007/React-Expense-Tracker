@@ -18,6 +18,12 @@ function App() {
   const [wholeExpense,setWholeExpense]=useState([])
   const [expenseTitle,setExpenseTitle]=useState('')
   const [expenseValue,setExpenseValue]=useState('')
+  
+  const [errors,setErrors] = useState({})
+  const [errorState,setErrorState]=useState(false)
+  const [errors1,setErrors1] = useState({})
+  const [errorState1,setErrorState1]=useState(false)
+
 
   useEffect(() => {
   const array1=wholeIncome.map(el => el.incomeValue)
@@ -43,19 +49,97 @@ function App() {
       }, [totalExpense,totalIncome])
 
 
+
+     
   const incomeSubmitHandler = (e) =>{
     e.preventDefault();
-  setWholeIncome([...wholeIncome,{id:Math.random()*1000,incomeTitle,incomeValue:parseInt(incomeValue)}])
-  setIncomeTitle('')
-  setIncomeValue('')
+    if(!incomeTitle){
+        if(!incomeValue){
+          setErrors({Title:"Title is required",Value:"Value is required"})
+          setErrorState(true)
+          setTimeout(() => {
+            setErrorState(false)
+            
+          }, 2000);
+
+                        }
+        else{
+          setErrorState(true)
+          setErrors({Title:"Title is required"})
+          setTimeout(() => {
+            setErrorState(false)
+            
+          }, 2000);
+      }
+     
+
+    }
+    else  if(!incomeValue){
+      setErrors({Value:"Value is required"})
+      setErrorState(true)
+      setTimeout(() => {
+        setErrorState(false)
+      }, 2000);
+     
+                    }
+ 
+ 
+  
+
+    else{
+      setErrorState(false)
+      setWholeIncome([...wholeIncome,{id:Math.random()*1000,incomeTitle,incomeValue:parseInt(incomeValue)}])
+      setIncomeTitle('')
+      setIncomeValue('')
+
+    }
+  
+
+ 
 
   }
 
   const expenseSubmitHandler = (e) =>{
     e.preventDefault();
-  setWholeExpense([...wholeExpense,{id:Math.random()*1000,expenseTitle,expenseValue:parseInt(expenseValue)}])
-  setExpenseTitle('')
-  setExpenseValue('')
+
+    if(!expenseTitle){
+      if(!expenseValue){
+        setErrors1({title:"Title is required",value:"Value is required"})
+        setErrorState1(true)
+        setTimeout(() => {
+          setErrorState1(false)
+        },2000);
+                      }
+      else{
+        setErrors1({title:"Title is required"})
+        setErrorState1(true)
+        
+        setTimeout(() => {
+          setErrorState1(false)
+          
+        }, 2000);
+    }
+   
+
+  }
+
+  else  if(!expenseValue){
+    setErrors1({value:"Value is required"})
+    setErrorState1(true)
+    setTimeout(() => {
+      setErrorState1(false)
+    }, 2000);
+                  }
+
+  else{
+    setErrorState1(false)
+    setWholeExpense([...wholeExpense,{id:Math.random()*1000,expenseTitle,expenseValue:parseInt(expenseValue)}])
+    setExpenseTitle('')
+    setExpenseValue('')
+
+  }
+  
+ 
 
   }
 
@@ -89,6 +173,8 @@ function App() {
 
       <div className="ie-wrapper">
       <Income 
+      errorState={errorState}
+      errors={errors}
       incomeSubmitHandler={incomeSubmitHandler}
       setIncomeTitle={setIncomeTitle}
       setIncomeValue={setIncomeValue}
@@ -100,6 +186,8 @@ function App() {
        />
 
 <Expense
+ errorState1={errorState1}
+ errors1={errors1}
       expenseSubmitHandler={expenseSubmitHandler}
       setExpenseTitle={setExpenseTitle}
       setExpenseValue={setExpenseValue}
