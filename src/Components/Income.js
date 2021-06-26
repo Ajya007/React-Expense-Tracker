@@ -8,7 +8,7 @@ const Income = ({errorState,errors,setIncomeValue,setIncomeTitle,incomeSubmitHan
             <form onSubmit={incomeSubmitHandler}>
                 <input onChange={(e) => setIncomeTitle(e.target.value)} placeholder="Add Income" value={incomeTitle} name="Title" autoComplete="off"/>
                {errorState && <p className="err">{errors.Title}</p> }
-                <input onChange={(e) => setIncomeValue(e.target.value)} placeholder="Add Value" value={incomeValue} name="value" pattern="\d{1,5}" autoComplete="off" />
+                <input onChange={(e) => setIncomeValue(e.target.value)} placeholder="Add Value" value={incomeValue} name="value"  pattern="[0-9]+" title="please enter number only" required="required" autoComplete="off" />
                 {errorState && <p className="err">{errors.Value}</p> }
                 <button type="submit" >submit</button>
             </form>

@@ -25,7 +25,45 @@ function App() {
   const [errorState1,setErrorState1]=useState(false)
 
 
+//Local storage for Income
+  const getLocalWholeIncome = () => {
+    if(localStorage.getItem("wholeIncome") === null){
+      localStorage.setItem("wholeIncome",JSON.stringify([]))
+    }else{
+      let WholeIncomelocal=JSON.parse(localStorage.getItem("wholeIncome"));
+      setWholeIncome(WholeIncomelocal)
+    }
+  }
+
+  const getLocalWholeExpense = () => {
+    if(localStorage.getItem("wholeExpense") === null){
+      localStorage.setItem("wholeExpense",JSON.stringify([]))
+    }else{
+      let WholeExpenselocal=JSON.parse(localStorage.getItem("wholeExpense"));
+      setWholeExpense(WholeExpenselocal)
+    }
+  }
+
   useEffect(() => {
+  getLocalWholeIncome(); 
+  getLocalWholeExpense();
+  
+ }, [])
+ useEffect(() => {
+  localStorage.setItem("wholeIncome",JSON.stringify(wholeIncome))
+ }, [wholeIncome])
+ useEffect(() => {
+  localStorage.setItem("wholeExpense",JSON.stringify(wholeExpense))
+ }, [wholeExpense])
+
+
+
+
+  
+
+
+  useEffect(() => {
+  
   const array1=wholeIncome.map(el => el.incomeValue)
   const totalSum=array1.reduce((total,el) => total+el ,0)
   setTotalIncome(totalSum)

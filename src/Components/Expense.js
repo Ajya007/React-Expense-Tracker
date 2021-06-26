@@ -9,7 +9,7 @@ const Expense= ({errorState1,errors1,setExpenseValue,setExpenseTitle,expenseSubm
             <form onSubmit={expenseSubmitHandler}>
                 <input onChange={(e) => setExpenseTitle(e.target.value)} placeholder="Add Expense" value={expenseTitle} autoComplete="off"/>
                 {errorState1 && <p className="err">{errors1.title}</p> }
-                <input onChange={(e) => setExpenseValue(e.target.value)}  placeholder="Add Value"  value={expenseValue} autoComplete="off"/>
+                <input onChange={(e) => setExpenseValue(e.target.value)}  placeholder="Add Value"  value={expenseValue} autoComplete="off"    pattern="[0-9]+" title="please enter number only" required="required" />
                 {errorState1 && <p className="err">{errors1.value}</p> }
                 <button type="submit" >submit</button>
             </form>
